@@ -105,7 +105,9 @@ alt - j : yabai -m window --focus south || yabai -m window --focus north
 
 # fast focus desktop
 # cmd + alt - x : yabai -m space --focus recent
-# cmd + alt - 1 : yabai -m space --focus 1
+# TODO: システムの整合性保護解除しないといけない
+# ctrl - 1 : yabai -m space --focus 1
+# ctrl - 2 : yabai -m space --focus 2
 
 # send window to desktop and follow focus
 # shift + cmd - z : yabai -m window --space next; yabai -m space --focus next
@@ -141,8 +143,9 @@ alt - j : yabai -m window --focus south || yabai -m window --focus north
 # toggle window split type
 # alt - e : yabai -m window --toggle split
 
+# ウィンドウをfloatする、すでにfloatだったら戻す？
 # float / unfloat window and center on screen
-# alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
+alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
 
 # toggle sticky(+float), topmost, picture-in-picture
 # alt - p : yabai -m window --toggle sticky --toggle topmost --toggle pip
