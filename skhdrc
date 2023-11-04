@@ -76,9 +76,6 @@
 # A REFERENCE ONLY, WHEN MAKING YOUR OWN CONFIGURATION..          #
 # ############################################################### #
 
-# move tmux
-ctrl + cmd + h : tmux prev
-ctrl + cmd + l : tmux next
 # focus window
 alt - h: yabai -m window --focus west || yabai -m window --focus east
 alt - l : yabai -m window --focus east || yabai -m window --focus west
