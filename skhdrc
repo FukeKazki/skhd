@@ -76,11 +76,8 @@
 # A REFERENCE ONLY, WHEN MAKING YOUR OWN CONFIGURATION..          #
 # ############################################################### #
 
-# focus window
-alt - h: yabai -m window --focus west || yabai -m window --focus east
-alt - l : yabai -m window --focus east || yabai -m window --focus west
-alt - k : yabai -m window --focus north || yabai -m window --focus south
-alt - j : yabai -m window --focus south || yabai -m window --focus north
+# NOTE: システムの整合性保護解除しないといけない
+ 
 
 # swap managed window
 # shift + alt - h : yabai -m window --swap north
@@ -105,17 +102,47 @@ alt - j : yabai -m window --focus south || yabai -m window --focus north
 
 # fast focus desktop
 # cmd + alt - x : yabai -m space --focus recent
-# TODO: システムの整合性保護解除しないといけない
-# ctrl - 1 : yabai -m space --focus 1
-# ctrl - 2 : yabai -m space --focus 2
+ 
+#  ╭──────────────────────────────────────────────────────────╮
+#  │                      Window間の移動                      │
+#  ╰──────────────────────────────────────────────────────────╯
+alt - h: yabai -m window --focus west || yabai -m window --focus east
+alt - l : yabai -m window --focus east || yabai -m window --focus west
+alt - k : yabai -m window --focus north || yabai -m window --focus south
+alt - j : yabai -m window --focus south || yabai -m window --focus north
+
+# ウィンドウをfloatする、すでにfloatだったら戻す？
+alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
+alt - f : yabai -m window --toggle zoom-fullscreen
+#  ╭──────────────────────────────────────────────────────────╮
+#  │                   ピクチャインピクチャ                   │
+#  ╰──────────────────────────────────────────────────────────╯
+alt - p : yabai -m window --toggle sticky --toggle topmost --toggle pip
+
+#  ╭──────────────────────────────────────────────────────────╮
+#  │                     スペース間の移動                     │
+#  ╰──────────────────────────────────────────────────────────╯
+ctrl - 1 : yabai -m space --focus 1
+ctrl - 2 : yabai -m space --focus 2
+
+#  ╭──────────────────────────────────────────────────────────╮
+#  │                         リサイズ                         │
+#  ╰──────────────────────────────────────────────────────────╯
+:: resize @
+ctrl - r ; resize
+resize < ctrl - r ; default
+resize < h : yabai -m window --resize left:-20:0 || yabai -m window --resize right:-20:0
+resize < j : yabai -m window --resize bottom:0:-20 || yabai -m window --resize top:0:-20
+resize < k : yabai -m window --resize top:0:20 || yabai -m window --resize bottom:0:20
+resize < l : yabai -m window --resize right:20:0 || yabai -m window --resize left:20:0
 
 # send window to desktop and follow focus
 # shift + cmd - z : yabai -m window --space next; yabai -m space --focus next
 # shift + cmd - 2 : yabai -m window --space  2; yabai -m space --focus 2
 
 # focus monitor
-ctrl + alt - z  : yabai -m display --focus prev
-ctrl + alt - 3  : yabai -m display --focus 3
+# ctrl + alt - z  : yabai -m display --focus prev
+# ctrl + alt - 3  : yabai -m display --focus 3
 
 # send window to monitor and follow focus
 # ctrl + cmd - c  : yabai -m window --display next; yabai -m display --focus next
@@ -124,14 +151,6 @@ ctrl + alt - 3  : yabai -m display --focus 3
 # move floating window
 # shift + ctrl - a : yabai -m window --move rel:-20:0
 # shift + ctrl - s : yabai -m window --move rel:0:20
-
-# increase window size
-# shift + alt - a : yabai -m window --resize left:-20:0
-# shift + alt - w : yabai -m window --resize top:0:-20
-
-# decrease window size
-# shift + cmd - s : yabai -m window --resize bottom:0:-20
-# shift + cmd - w : yabai -m window --resize top:0:20
 
 # set insertion point in focused container
 # ctrl + alt - h : yabai -m window --insert west
@@ -143,9 +162,3 @@ ctrl + alt - 3  : yabai -m display --focus 3
 # toggle window split type
 # alt - e : yabai -m window --toggle split
 
-# ウィンドウをfloatする、すでにfloatだったら戻す？
-# float / unfloat window and center on screen
-alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
-
-# toggle sticky(+float), topmost, picture-in-picture
-# alt - p : yabai -m window --toggle sticky --toggle topmost --toggle pip
