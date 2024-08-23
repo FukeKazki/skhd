@@ -124,6 +124,8 @@ alt - p : yabai -m window --toggle sticky --toggle topmost --toggle pip
 #  ╰──────────────────────────────────────────────────────────╯
 ctrl - 1 : yabai -m space --focus 1
 ctrl - 2 : yabai -m space --focus 2
+ctrl - 3 : yabai -m space --focus 3
+ctrl - 4 : yabai -m space --focus 4
 
 #  ╭──────────────────────────────────────────────────────────╮
 #  │                         リサイズ                         │
@@ -161,4 +163,6 @@ resize < l : yabai -m window --resize right:20:0 || yabai -m window --resize lef
 
 # toggle window split type
 # alt - e : yabai -m window --toggle split
-
+ 
+# Bind key to trigger the 7:3 split
+alt - z : yabai -m window --split abs:0.7:0.0
